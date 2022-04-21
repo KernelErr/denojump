@@ -6,7 +6,7 @@ A simple URL shorten tool based on [Deno Deploy](https://deno.com/deploy) and [F
 
 1. Import scheme in Fauna.
 
-2. Create some short link like:
+2. Create some short link like(source should begin with `/`):
 
    ```
    mutation {
@@ -16,6 +16,8 @@ A simple URL shorten tool based on [Deno Deploy](https://deno.com/deploy) and [F
      }
    }
    ```
+
+3. Set `FAUNA_SECRET`(Your Fauna API Key) environment variable.
 
 3. Deploy the `fauna.ts` to Deno Deploy.
 
