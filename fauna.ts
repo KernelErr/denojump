@@ -13,13 +13,19 @@ async function handler(req: Request): Promise<Response> {
     }
   }
 
+  if (requestPath === "") {
+    return new Response("Hello world");
+  }
+
   const { data, errors } = await getJumpBySource(requestPath);
 
   const parsedData = data as { getJumpBySource: { target: string } };
 
   if (errors) {
     console.error(errors.map((error) => error.message).join("\n"));
-    return new Response("Ooops! Seems that something went wrong.", { status: 500 });
+    return new Response("Ooops! Seems that something went wrong.", {
+      status: 500,
+    });
   }
 
   if (parsedData.getJumpBySource === null) {
