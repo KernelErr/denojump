@@ -1,0 +1,9 @@
+type Jump {
+   source: String!
+   target: String!
+}
+
+type Query {
+    getAllJumps: [Jump!]!
+    getJumpBySource(source: String!): Jump
+}
