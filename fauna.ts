@@ -1,6 +1,8 @@
 import { serve } from "https://deno.land/std@0.136.0/http/server.ts";
 
 async function handler(req: Request): Promise<Response> {
+  console.log(req.url);
+  
   if (req.method !== "GET") {
     return new Response("Request method not allowed", { status: 405 });
   }
