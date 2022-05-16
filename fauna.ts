@@ -1,7 +1,10 @@
 import { serve } from "https://deno.land/std@0.136.0/http/server.ts";
 
-async function handler(req: Request): Promise<Response> {
+async function handler(req: Request, connInfo: ConnInfo): Promise<Response> {
   console.log(req.url);
+  const addr = connInfo.remoteAddr as Deno.NetAddr;
+  const ip = addr.hostname;
+  console.log(ip);
   
   if (req.method !== "GET") {
     return new Response("Request method not allowed", { status: 405 });
